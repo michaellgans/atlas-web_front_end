@@ -367,12 +367,6 @@
     min-height: 50vh;
   }
 
-  /* Section Latest news ============================= */
-
-  .section-latest-news .row {
-    flex-direction: row-reverse;
-  }
-
   /* Section SERVICES ============================= */
 
   .section-services .row {
@@ -383,6 +377,12 @@
 
   .section-about-us [class^="col-"] {
     align-self: center;
+  }
+
+  /* Section Latest news ============================= */
+
+  .section-latest-news .row {
+    flex-direction: row-reverse;
   }
   
   /*** 4. CARD ***/
