@@ -7,6 +7,8 @@
     --color-grey: #8C8C8C;
 }
 
+/* Button Styling */
+
 .btn-primary {
     color: var(--color-white);
     background-color: var(--color-bright-red);
@@ -32,11 +34,15 @@
     border-color: var(--color-bright-red);
 }
 
+/* Link Styling */
+
 a .text-dark:hover,
 a .text-dark:focus {
     color: var(--color-bright-red)!important;
     text-decoration: none;
 }
+
+/* Card Styling */
 
 .card {
     border: 1px solid --color-bright-red;
@@ -51,6 +57,8 @@ a .text-dark:focus {
 .card-header:first-child {
     border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0;
 }
+
+/* Misc Styling */
 
 .border-bottom {
     border-bottom: 1px solid var(--color-bright-red)!important;
