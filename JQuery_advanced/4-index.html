@@ -39,12 +39,14 @@
                 createFamilytree();
 
                 function replaceFamilyTree() {
-                    $("tbody").empty().append(
+                    $("tbody").empty();
+                    let newContent = $("tbody").append(
                         $("<tr>").append(
                             $("<td>").text("Gerard"),
                             $("<td>").text("Bonissa")
                         )
                     );
+                    $("tbody").replaceWith(newContent);
                 }
                 replaceFamilyTree();
             });
