@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 6</title>
+
+        <!-- JQuery Script-->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="application/javascript">
+            $(document).ready(function() {
+                function createFamilytree() {
+                    const table = `
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>`;
+                    $("body").append(table);
+                }
+                createFamilytree();
+
+                function addNewMember(firstName, lastName, position) {
+                    if (position === "before") {
+                        $("table tbody").prepend(
+                        $("<tr>").append(
+                            $("<td>").text(firstName),
+                            $("<td>").text(lastName),
+                            $("<td>").text("(x)").css("background-color", "orange").click(function() {
+                                $(this.closest("tr").remove());
+                            })
+                        )
+                    );
+                    } else {
+                        $("table tbody").append(
+                        $("<tr>").append(
+                            $("<td>").text(firstName),
+                            $("<td>").text(lastName),
+                            $("<td>").text("(x)").css("background-color", "orange").click(function() {
+                                $(this.closest("tr").remove());
+                            })
+                        )
+                    );
+                    }
+                }
+                
+                function createForm() {
+                    $("body").prepend(
+                        $("<input>").attr("type", "text"),
+                        $("<input>").attr("type", "text"),
+                        $("<select>").append(
+                            $("<option>").attr("value", "before").text("Before"),
+                            $("<option>").attr("value", "after").text("After")
+                        ),
+                        $("<input>").attr("type", "submit").click(function(event) {
+                            event.preventDefault();
+                            let firstName = $("input[type='text']:first").val();
+                            let lastName = $("input[type='text']:nth-of-type(2)").val();
+                            let position = $("select").val();
+                            addNewMember(firstName, lastName, position);
+                        })
+                    );
+                }
+
+                createForm();
+            });
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
