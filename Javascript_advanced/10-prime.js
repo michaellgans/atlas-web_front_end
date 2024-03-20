@@ -1,4 +1,4 @@
-/* Task 9 */
+/* Task 10 */
 
 function isPrime(currentNumber) {
     for (let x = 2; x <= Math.sqrt(currentNumber); x++) {
@@ -20,13 +20,16 @@ function countPrimeNumbers() {
     return count;
 }
 
-let startTime = performance.now();
+let totalTime = 0;
 
-setTimeout(function () {
-    for (let x = 0; x < 100; x++) {
-        countPrimeNumbers();
-    }
-}, 0);
+for (let x = 0; x < 100; x++) {
+    let startTime = performance.now();
+
+    countPrimeNumbers();
+    
+    let endTime = performance.now();
+    totalTime += endTime - startTime;
+}
 
 let endTime = performance.now();
-console.log(`Execution time of printing countPrimeNumbers was ${endTime - startTime} milliseconds`);
+console.log(`Execution time of printing countPrimeNumbers was ${totalTime} milliseconds`);
