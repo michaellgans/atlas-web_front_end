@@ -27,16 +27,21 @@
                 createFamilytree();
 
                 function addNewMember(firstName, lastName) {
-                    const tableBody = `
-                        <tr>
-                            <td>${firstName}</td>
-                            <td>${lastName}</td>
-                            <td style="background-color: orange">(x)<td>
-                        </tr>
-                    `;
-                    $("tbody").append($(tableBody));
+                    $("table tbody").append(
+                        $("<tr>").append(
+                            $("<td>").text(firstName),
+                            $("<td>").text(lastName),
+                            $("<td>").text("(x)").css("background-color", "orange").click(function() {
+                                $(this.closest("tr").remove());
+                            })
+                        )
+                    );
                 }
-                addNewMember("Michael", "Gans")
+                addNewMember("Guillaume", "Salva");
+                addNewMember("Arielle", "Snizt");
+                addNewMember("Fanette", "Snizt");
+                addNewMember("Gerard", "Snizt");
+                addNewMember("Victor", "Salva");
             });
         </script>
     </head>
