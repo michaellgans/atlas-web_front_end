@@ -4,15 +4,15 @@ function welcomeMessage(fullName) {
     alert("Welcome " + fullName);
 }
 
-let guillaume = function() {
+const guillaume = function() {
     welcomeMessage("Guillaume");
 };
 
-let alex = function() {
+const alex = function() {
     welcomeMessage("Alex");
 };
 
-let fred = function() {
+const fred = function() {
     welcomeMessage("Fred");
 };
 

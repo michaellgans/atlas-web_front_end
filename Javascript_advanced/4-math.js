@@ -12,10 +12,10 @@ function addBy(firstNumber) {
     }
 }
 
-let addBy100 = addBy(100);
-let addBy1000 = addBy(1000);
-let divideBy10 = divideBy(10);
-let divideBy100 = divideBy(100);
+const addBy100 = addBy(100);
+const addBy1000 = addBy(1000);
+const divideBy10 = divideBy(10);
+const divideBy100 = divideBy(100);
 
 /* RUN WITH */
 console.log(addBy100(20));

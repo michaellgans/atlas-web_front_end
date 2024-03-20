@@ -9,3 +9,7 @@ function welcome(firstName, lastName) {
 
     displayFullName();
 }
+
+/* RUN WITH */
+welcome('Holberton', 'School');
+alert(fullName);

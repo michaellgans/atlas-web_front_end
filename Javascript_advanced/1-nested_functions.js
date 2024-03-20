@@ -1,16 +1,16 @@
 /* Task 1 */
 
-let globalVariable = "Welcome";
+const globalVariable = "Welcome";
 
 function outer() {
     alert(globalVariable);
 
-    let course = "Atlas";
+    const course = "Atlas";
 
         function inner() {
         alert(globalVariable + " " + course);
 
-        let exclamation = "!";
+        const exclamation = "!";
 
         function inception() {
             alert(globalVariable + " " + course + exclamation);
@@ -21,3 +21,5 @@ function outer() {
 
     inner();
 }
+
+outer();
