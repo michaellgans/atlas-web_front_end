@@ -25,6 +25,9 @@
     <!-- JQuery -->
     <script>
         function setCookies() {
+            let now = new Date();
+            /* Calculates number of milliseconds in 10 days */
+            let expirationDate = new Date(now.getTime() + 10 *24 * 60 * 60 * 1000)
             document.cookie = `firstname=${document.querySelector('#firstname').value}`;
             document.cookie = `email=${document.querySelector('#email').value}`;
         }
