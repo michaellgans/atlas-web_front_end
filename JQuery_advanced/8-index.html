@@ -41,6 +41,7 @@
                         $("ul").append(listItem);
                     }
 
+                    /* Pulls information from Wikipedia */
                     function queryWikipedia(search, offset = 0) {
                         var apiUrl = "https://en.wikipedia.org/w/api.php";
                         $.ajax({
@@ -64,6 +65,7 @@
                         });
                     }
 
+                    /* Creates navigation underneath with page numbers */
                     function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
                         var totalPages = Math.ceil(numberOfItems / itemsPerPage);
                         var paginationList = $("#pagination");
