@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 1</title>
+    <title>Task 0</title>
 </head>
 <body>
     <h1>
@@ -11,6 +11,9 @@
     </h1>
     <input type="text" id="firstname">
     <input type="text" id="email">
+    <button onclick="setCookies()">
+        Log me in
+    </button>
 
     <h1>
         Cookies
@@ -22,15 +25,28 @@
     <!-- JQuery -->
     <script>
         function setCookies() {
+            let now = new Date();
+            /* Calculates number of milliseconds in 10 days */
+            let expirationDate = new Date(now.getTime() + 10 *24 * 60 * 60 * 1000)
             document.cookie = `firstname=${document.querySelector('#firstname').value}`;
             document.cookie = `email=${document.querySelector('#email').value}`;
+        }
 
-            const exp = new Date();
-            exp.setTime(exp.getTime() + (10 * 24 * 60 * 60 * 1000));
-            document.cookie = `expires=${exp.toUTCString()}`;
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (let crumb of cookies) {
+                const [cookieName, cookieValue] = crumb.trim().split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return '';
         }
 
         function showCookies() {
+            const email = getCookie('email');
+            const firstname = getCookie('firstname');
+            
             const p = document.createElement('p');
             p.innerHTML = `Cookies: ${document.cookie}`;
             document.body.appendChild(p);
