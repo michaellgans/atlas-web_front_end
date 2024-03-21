@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 10</title>
+
+        <!-- JQuery Script -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
+        <!-- JQuery Code -->
+        <script type="application/javascript">
+                $(document).ready(function() {
+
+                    function addPostRow (data) {
+                        $("body").append(
+                            $("<p>").append(
+                                $("<span>").text(`Post created with id: ${data.id}, title: ${data.title}, author: ${data.author}`)
+                            )
+                        );
+                    }
+
+                    function listPosts () {
+                        $.get("https://localhost:3000/posts", function (response) {
+                            if (response && response.length > 0) {
+                                response.forEach(function (post) {
+                                    addPostRow(post);
+                                });
+                            } else {
+                                alert("No posts found.");
+                            }
+                        }).fail(function () {
+                            alert("Server Error");
+                        });
+                    }
+
+                    listPosts();
+                });
+        </script>
+
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
