@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 6</title>
+
+        <!-- JQuery Script-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="application/javascript">
+            $(document).ready(function() {
+                /* Creates input box and submit button */
+                function createSearchForm() {
+                    let form = $("<form>").append(
+                        $("<input>").attr("type", "text"),
+                        $("<input>").attr("type", "submit")
+                    );
+                    
+                    /* Creates list to populate */
+                    let list = $("<ul>");
+                    form.submit(function (event) {
+                        event.preventDefault();
+                        let value = $(this).find("input[type='text']").val();
+                        queryWikipedia(value);
+                    });
+                    $("body").append(form, list);
+
+                    /* Populate info into the list */
+                    function addNewArticle(id, title, snippet) {
+                        let addItem = $("<li>").append(
+                            $("<p>").append($("<span>").text(id + " - "), $("<b>").text(title)),
+                            $("<p>").html(snippet)
+                        );
+                        $("ul").append(addItem);
+                    }
+
+                    /* Grab info from Wikipedia */
+                    function queryWikipedia(search) {
+                        let apiURL = "https://en.wikipedia.org/w/api.php";
+                        $.ajax({
+                            url: apiURL,
+                            data: {
+                                action: "query",
+                                list: "search",
+                                srsearch: search,
+                                format: "json",
+                                origin: "*"
+                            },
+                            dataType: "json",
+                            success: function (data) {
+                                data.query.search.forEach(function (item) {
+                                    addNewArticle(item.pageid, item.title, item.snippet);
+                                });
+                            },
+                        });
+                    }
+                }
+                createSearchForm();
+            });
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
